@@ -1,13 +1,12 @@
 import courier.Courier;
 import courier.CourierActions;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
-
-import io.qameta.allure.Description;
-import io.qameta.allure.junit4.DisplayName;
 
 public class CourierCreationTest {
     private static final String login = "Courier_TEST1";

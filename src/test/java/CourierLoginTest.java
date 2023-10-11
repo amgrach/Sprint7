@@ -1,13 +1,14 @@
 import courier.Courier;
 import courier.CourierActions;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
-import io.qameta.allure.Description;
-import io.qameta.allure.junit4.DisplayName;
 
 
 public class CourierLoginTest {
@@ -31,7 +32,7 @@ public class CourierLoginTest {
     @Description("Логин курьера:\n " +
             "курьер может авторизоваться;\n" +
             "для авторизации нужно передать все обязательные поля; \n" +
-             "успешный запрос возвращает id.")
+            "успешный запрос возвращает id.")
     public void loginCourier() {
         Courier courier = new Courier(login, password);
         Response response = CourierActions.loginCourier(courier);

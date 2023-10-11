@@ -1,4 +1,4 @@
-
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import orders.Orders;
 import orders.OrdersActions;
@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 import static org.hamcrest.Matchers.notNullValue;
-import io.qameta.allure.junit4.DisplayName;
+
 @RunWith(Parameterized.class)
 public class OrderCreationTest {
 
