@@ -3,6 +3,7 @@ import courier.CourierActions;
 import org.junit.Test;
 import org.junit.After;
 import io.restassured.response.Response;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 
 
@@ -12,6 +13,7 @@ public class CourierCreationTest {
     private static final String firstName = "Courier_TEST1";
 
     String courierId = null;
+
     @Test
     // Cоздание курьера:
     // курьера можно создать;
@@ -57,7 +59,7 @@ public class CourierCreationTest {
     //Cоздание курьера:
     //если одного из полей нет, запрос возвращает ошибку;
     public void createCourierWithoutPassword() {
-        Courier courier = new Courier( login, "", firstName);
+        Courier courier = new Courier(login, "", firstName);
         Response response = CourierActions.createCourier(courier);
         response.then().assertThat().statusCode(400)
                 .and()
