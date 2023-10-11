@@ -17,7 +17,7 @@ public class OrdersActions {
     }
 
     public static Response cancelOrder(String track) {
-        given()
+        return given()
                 .header("Content-type", "application/json")
                 .queryParams("track", track)
                 .when()
@@ -25,7 +25,7 @@ public class OrdersActions {
     }
 
     public static Response getListOfOrders() {
-        return given()
+        given()
                 .header("Content-type", "application/json")
                 .get(APP_URL + ORDER_URL);
     }
