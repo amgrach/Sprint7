@@ -1,14 +1,16 @@
+
+
 import io.restassured.response.Response;
 import orders.OrdersActions;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.notNullValue;
-
+import io.qameta.allure.junit4.DisplayName;
 public class OrderListTest {
 
 
     @Test
-
+    @DisplayName("Список заказов")
     public void getOrder() {
         Response response = OrdersActions.getListOfOrders();
         response.then()

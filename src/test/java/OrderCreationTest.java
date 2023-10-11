@@ -1,3 +1,4 @@
+
 import io.restassured.response.Response;
 import orders.Orders;
 import orders.OrdersActions;
@@ -7,7 +8,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 import static org.hamcrest.Matchers.notNullValue;
-
+import io.qameta.allure.junit4.DisplayName;
 @RunWith(Parameterized.class)
 public class OrderCreationTest {
 
@@ -29,6 +30,7 @@ public class OrderCreationTest {
     }
 
     @Test
+    @DisplayName("Создание заказов с разными цветами")
     public void testColour() {
         Orders order = new Orders("USER_TEST", "USER_TEST", "ADDRESS_TEST", "1", "+79998887766", 2, "2023-12-12", "test_comment", new String[]{colour});
         Response response = OrdersActions.newOrder(order);

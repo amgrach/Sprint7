@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 
 public class CourierCreationTest {
     private static final String login = "Courier_TEST1";
@@ -15,11 +17,12 @@ public class CourierCreationTest {
     String courierId = null;
 
     @Test
-    // Cоздание курьера:
-    // курьера можно создать;
-    // чтобы создать курьера, нужно передать в ручку все обязательные поля;
-    // запрос возвращает правильный код ответа;
-    // успешный запрос возвращает ok: true;
+    @DisplayName("Cоздание курьера")
+    @Description("Cоздание курьера:\n " +
+            "курьера можно создать;\n" +
+            "чтобы создать курьера, нужно передать в ручку все обязательные поля;\n" +
+            "запрос возвращает правильный код ответа;\n" +
+            "успешный запрос возвращает ok: true;")
     public void createCourier() {
         Courier courier = new Courier(login, password, firstName);
         Response response = CourierActions.createCourier(courier);
@@ -31,9 +34,10 @@ public class CourierCreationTest {
     }
 
     @Test
-    //Cоздание курьера:
-    //нельзя создать двух одинаковых курьеров;
-    //если создать пользователя с логином, который уже есть, возвращается ошибка.
+    @DisplayName("Cоздание существующего курьера")
+    @Description("Cоздание курьера:\n " +
+            "нельзя создать двух одинаковых курьеров;\n" +
+            "если создать пользователя с логином, который уже есть, возвращается ошибка.")
     public void createSameCourier() {
         Courier courier = new Courier(login, password, firstName);
         CourierActions.createCourier(courier);
@@ -45,8 +49,9 @@ public class CourierCreationTest {
     }
 
     @Test
-    //Cоздание курьера:
-    //если одного из полей нет, запрос возвращает ошибку;
+    @DisplayName("Cоздание курьера без логина.")
+    @Description("Cоздание курьера без логина:\n " +
+            "если одного из полей нет, запрос возвращает ошибку;")
     public void createCourierWithoutLogin() {
         Courier courier = new Courier("", password, firstName);
         Response response = CourierActions.createCourier(courier);
@@ -56,8 +61,9 @@ public class CourierCreationTest {
     }
 
     @Test
-    //Cоздание курьера:
-    //если одного из полей нет, запрос возвращает ошибку;
+    @DisplayName("Cоздание курьера без пароля.")
+    @Description("Cоздание курьера без пароля:\n " +
+            "если одного из полей нет, запрос возвращает ошибку;")
     public void createCourierWithoutPassword() {
         Courier courier = new Courier(login, "", firstName);
         Response response = CourierActions.createCourier(courier);

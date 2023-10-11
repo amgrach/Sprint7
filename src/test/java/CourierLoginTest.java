@@ -4,9 +4,10 @@ import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 
 
 public class CourierLoginTest {
@@ -26,10 +27,11 @@ public class CourierLoginTest {
 
 
     @Test
-    // Логин курьера:
-    // курьер может авторизоваться;
-    // для авторизации нужно передать все обязательные поля;
-    // успешный запрос возвращает id.
+    @DisplayName("Логин курьера.")
+    @Description("Логин курьера:\n " +
+            "курьер может авторизоваться;\n" +
+            "для авторизации нужно передать все обязательные поля; \n" +
+             "успешный запрос возвращает id.")
     public void loginCourier() {
         Courier courier = new Courier(login, password);
         Response response = CourierActions.loginCourier(courier);
@@ -40,9 +42,10 @@ public class CourierLoginTest {
     }
 
     @Test
-    // Логин курьера:
-    // система вернёт ошибку, если неправильно указать логин или пароль;
-    // если авторизоваться под несуществующим пользователем, запрос возвращает ошибку;
+    @DisplayName("Логин курьера с неправильным логином.")
+    @Description("Логин курьера с неправильным логином:\n " +
+            "система вернёт ошибку, если неправильно указать логин или пароль;\n" +
+            "если авторизоваться под несуществующим пользователем, запрос возвращает ошибку;")
     public void loginCourierLoginNotValid() {
         Courier courier = new Courier(loginNotValid, password);
         Response response = CourierActions.loginCourier(courier);
@@ -52,8 +55,9 @@ public class CourierLoginTest {
     }
 
     @Test
-    // Логин курьера:
-    // система вернёт ошибку, если неправильно указать логин или пароль;
+    @DisplayName("Логин курьера с неправильным паролем.")
+    @Description("Логин курьера с неправильным логином:\n " +
+            "система вернёт ошибку, если неправильно указать логин или пароль;")
     public void loginCourierPasswordNotValid() {
         Courier courier = new Courier(login, passwordNotValid);
         Response response = CourierActions.loginCourier(courier);
@@ -63,8 +67,9 @@ public class CourierLoginTest {
     }
 
     @Test
-    // Логин курьера:
-    // для авторизации нужно передать все обязательные поля;
+    @DisplayName("Логин курьера с отсутствующими логином.")
+    @Description("Логин курьера с отсутствующими логином:\n " +
+            "для авторизации нужно передать все обязательные поля;")
     public void loginCourierWithoutLogin() {
         Courier courier = new Courier("", password);
         Response response = CourierActions.loginCourier(courier);
@@ -74,8 +79,9 @@ public class CourierLoginTest {
     }
 
     @Test
-    // Логин курьера:
-    // для авторизации нужно передать все обязательные поля;
+    @DisplayName("Логин курьера с отсутствующими паролем.")
+    @Description("Логин курьера с отсутствующими паролем:\n " +
+            "для авторизации нужно передать все обязательные поля;")
     public void loginCourierWithoutPassword() {
         Courier courier = new Courier(login, "");
         Response response = CourierActions.loginCourier(courier);
