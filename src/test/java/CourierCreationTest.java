@@ -65,7 +65,7 @@ public class CourierCreationTest {
     }
 
     @After
-    public void delCourier() {
+    public void deleteCourier() {
         CourierActions.deleteCourier(courierId);
     }
 
