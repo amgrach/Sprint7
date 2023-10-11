@@ -9,9 +9,9 @@ public class Orders {
     private int rentTime;
     private String deliveryDate;
     private String comment;
-    private String [] color;
+    private String[] color;
 
-    public Orders(){
+    public Orders() {
 
     }
 
@@ -91,11 +91,11 @@ public class Orders {
         this.comment = comment;
     }
 
-    public String [] getColor() {
+    public String[] getColor() {
         return color;
     }
 
-    public void setColor(String [] color) {
+    public void setColor(String[] color) {
         this.color = color;
     }
 

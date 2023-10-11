@@ -1,9 +1,9 @@
 import courier.Courier;
 import courier.CourierActions;
+import io.restassured.response.Response;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.After;
-import io.restassured.response.Response;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
@@ -13,13 +13,13 @@ public class CourierLoginTest {
     private static final String login = "Courier_TEST2";
     private static final String password = "qwerty123";
     private static final String firstName = "Courier_TEST2";
-    String courierId = null;
     private static final String loginNotValid = "Courier_TESTNOTVALID";
     private static final String passwordNotValid = "qwerty321";
+    String courierId = null;
 
     @Before
     public void createCourier() {
-        Courier courierNew = new Courier(login, password);
+        Courier courierNew = new Courier(login, password, firstName);
         CourierActions.createCourier(courierNew);
         courierId = CourierActions.loginCourier(courierNew).then().extract().path("id").toString();
     }

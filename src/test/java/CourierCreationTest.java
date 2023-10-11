@@ -1,8 +1,8 @@
 import courier.Courier;
 import courier.CourierActions;
-import org.junit.Test;
-import org.junit.After;
 import io.restassured.response.Response;
+import org.junit.After;
+import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 

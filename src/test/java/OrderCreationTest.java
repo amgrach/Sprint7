@@ -1,22 +1,24 @@
-import orders.*;
+import io.restassured.response.Response;
+import orders.Orders;
+import orders.OrdersActions;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import io.restassured.response.Response;
+
 import static org.hamcrest.Matchers.notNullValue;
 
 @RunWith(Parameterized.class)
 public class OrderCreationTest {
 
     private final String colour;
-    String track;
+    String track = null;
 
     public OrderCreationTest(String colour) {
         this.colour = colour;
     }
 
-    @Parameterized.Parameters (name = "Colour for test is: {0}")
+    @Parameterized.Parameters(name = "Colour for test is: {0}")
     public static Object[] getData() {
         return new Object[][]{
                 {"BLACK"},

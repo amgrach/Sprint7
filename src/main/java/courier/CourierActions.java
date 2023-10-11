@@ -1,9 +1,10 @@
 package courier;
 
-import static config.AppConfig.*;
-
-import static io.restassured.RestAssured.given;
 import io.restassured.response.Response;
+
+import static config.AppConfig.*;
+import static io.restassured.RestAssured.given;
+
 public class CourierActions {
     public static Response createCourier(Courier courier) {
         return given()
