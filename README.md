@@ -10,3 +10,4 @@ Sprint7 java project is used for automated testing of [Яндекс.Самока
 To run tests please run:
 
 "mvn clean test"
+"allure serve target/surefire-reports/"
