@@ -1,8 +1,8 @@
-import courier.Courier;
-import courier.CourierActions;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
+import main.Courier;
+import main.CourierActions;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

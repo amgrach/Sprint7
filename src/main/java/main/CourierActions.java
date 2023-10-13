@@ -1,37 +1,42 @@
-package courier;
-
-import io.restassured.response.Response;
-
-import static config.AppConfig.*;
-import static io.restassured.RestAssured.given;
+package main;
 
 import io.qameta.allure.Step;
+import io.restassured.response.Response;
 
-public class CourierActions {
+import static io.restassured.RestAssured.given;
+
+public class CourierActions extends BaseClient {
+    public static final String COURIER_URL = "api/v1/courier/";
+    public static final String LOGIN_URL = "api/v1/courier/login/";
+
     @Step("Courier Creation")
     public static Response createCourier(Courier courier) {
         return given()
+                .spec(getSpec())
                 .header("Content-type", "application/json")
                 .and()
                 .body(courier)
                 .when()
-                .post(APP_URL + COURIER_URL);
+                .post(COURIER_URL);
     }
 
     @Step("Login Courier")
     public static Response loginCourier(Courier courier) {
         return given()
+                .spec(getSpec())
                 .header("Content-type", "application/json")
                 .and()
                 .body(courier)
                 .when()
-                .post(APP_URL + LOGIN_URL);
+                .post(LOGIN_URL);
     }
+
     @Step("Delete Courier")
     public static void deleteCourier(String courierId) {
         if (courierId != null)
             given()
-                    .delete(APP_URL + COURIER_URL + "{courierId}", courierId);
+                    .spec(getSpec())
+                    .delete(COURIER_URL + "{courierId}", courierId);
     }
 
 }

@@ -1,7 +1,7 @@
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
-import orders.Orders;
-import orders.OrdersActions;
+import main.Orders;
+import main.OrdersActions;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;

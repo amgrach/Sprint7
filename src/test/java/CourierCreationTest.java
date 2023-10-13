@@ -1,17 +1,17 @@
-import courier.Courier;
-import courier.CourierActions;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
+import main.Courier;
+import main.CourierActions;
 import org.junit.After;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 
 public class CourierCreationTest {
-    private static final String login = "Courier_TEST1";
+    private static final String login = "Courier_TEST2";
     private static final String password = "qwerty123";
-    private static final String firstName = "Courier_TEST1";
+    private static final String firstName = "Courier_TEST2";
 
     String courierId = null;
 
@@ -75,6 +75,4 @@ public class CourierCreationTest {
     public void deleteCourier() {
         CourierActions.deleteCourier(courierId);
     }
-
-
 }

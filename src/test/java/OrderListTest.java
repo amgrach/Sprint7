@@ -1,6 +1,6 @@
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
-import orders.OrdersActions;
+import main.OrdersActions;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.notNullValue;

@@ -1,4 +1,4 @@
-package orders;
+package main;
 
 public class Orders {
     private String firstName;
@@ -10,10 +10,6 @@ public class Orders {
     private String deliveryDate;
     private String comment;
     private String[] color;
-
-    public Orders() {
-
-    }
 
     public Orders(String firstName, String lastName, String address, String metroStation, String phone, int rentTime, String deliveryDate, String comment, String[] color) {
         this.firstName = firstName;
